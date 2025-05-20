@@ -10,6 +10,7 @@
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
+        "test:playwright": "playwright test",
         "test-storybook": "test-storybook",
         "format": "prettier \"**/*.{tsx,ts,css,scss,html}\" --write"
     },
@@ -20,6 +21,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.25.0",
+        "@playwright/test": "^1.52.0",
         "@storybook/addon-actions": "^8.6.14",
         "@storybook/addon-essentials": "^8.6.14",
         "@storybook/addon-interactions": "^8.6.14",
