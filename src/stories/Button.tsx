@@ -1,41 +1,49 @@
-import './button.css';
-import React from "react";
-
+import "./button.css"
+import React from "react"
+import classnames from "classnames"
 
 export type ButtonProps = {
-  /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
-  /** How large should the button be? */
-  size?: 'small' | 'medium' | 'large';
-  /** Button contents */
-  label: string;
-  disabled?: boolean
-  /** Optional click handler */
-  onClick?: () => void;
-} & React.JSX.IntrinsicElements['button'];
+    /** Is this the principal call to action on the page? */
+    primary?: boolean
+    /** What background color to use */
+    backgroundColor?: string
+    /** How large should the button be? */
+    size?: "small" | "medium" | "large"
+    /** Button contents */
+    label: string
+    disabled?: boolean
+    /** Optional click handler */
+    onClick?: () => void
+} & React.JSX.IntrinsicElements["button"]
 
 /** Primary UI component for user interaction */
 export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
-  disabled = false,
-  ...props
+    primary = false,
+    size = "medium",
+    backgroundColor,
+    label,
+    disabled = false,
+    ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+    const mode = primary
+        ? "storybook-button--primary"
+        : "storybook-button--secondary"
 
-  return (
-    <button
-      type="button"
-      disabled={disabled}
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
-  );
-};
+    const className = classnames(
+        "storybook-button",
+        `storybook-button--${size}`,
+        mode,
+    )
+
+    return (
+        <button
+            type="button"
+            disabled={disabled}
+            className={className}
+            style={{ backgroundColor }}
+            {...props}
+        >
+            {label}
+        </button>
+    )
+}
