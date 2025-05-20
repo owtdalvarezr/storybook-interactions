@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button } from './Button';
-import { spyClickEvent } from "../helpers/spyEvents.ts";
+import { spyMouseEvents } from "../helpers/spyEvents.ts";
+import { expect, userEvent, within } from "@storybook/test";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -21,7 +22,7 @@ const meta = {
     primary: true,
     size: 'medium',
     disabled: false,
-    ...spyClickEvent(),
+    ...spyMouseEvents(),
   },
   render: (args) => {
     return <Button {...args} />
@@ -33,7 +34,32 @@ type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
-  args: {}
+  args: {},
+  play: async ({ canvasElement, args, step }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Button/i });
+
+    // Step 1: Check initial state
+    await step('Initial button state', async () => {
+      await expect(button).toBeInTheDocument();
+      await expect(button).toHaveClass('storybook-button--primary');
+    });
+
+    await step('Hover over button', async () => {
+      await userEvent.hover(button);
+      await expect(args.onMouseEnter).toHaveBeenCalled();
+    });
+
+    await step('Click the button', async () => {
+      await userEvent.click(button);
+      await expect(args.onClick).toHaveBeenCalled();
+    });
+
+    await step('Move mouse away', async () => {
+      await userEvent.unhover(button);
+      await expect(args.onMouseLeave).toHaveBeenCalled();
+    });
+  }
 };
 
 export const Secondary: Story = {
