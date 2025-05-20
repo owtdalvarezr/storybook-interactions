@@ -24,9 +24,6 @@ const meta = {
         disabled: false,
         ...spyMouseEvents(),
     },
-    render: (args) => {
-        return <Button {...args} />
-    },
 } satisfies Meta<typeof Button>
 
 export default meta

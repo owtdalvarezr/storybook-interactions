@@ -1,4 +1,6 @@
 import { test, expect } from "@playwright/test"
+import { theme } from "../../theme/theme.ts"
+import { hexToRgb } from "../../helpers/colorConverter.ts"
 
 test.describe("Button Component", () => {
     test("changes background color on hover", async ({ page }) => {
@@ -18,6 +20,10 @@ test.describe("Button Component", () => {
             return window.getComputedStyle(el).backgroundColor
         })
 
+        expect(initialBgColor).toBe(
+            hexToRgb(theme.colors.button.primary.background),
+        )
+
         // Hover over the button
         await button.hover()
 
@@ -27,6 +33,9 @@ test.describe("Button Component", () => {
         })
 
         // Assert colors are different
-        expect(hoverBgColor).not.toBe(initialBgColor)
+        // expect(hoverBgColor).not.toBe(initialBgColor)
+        expect(hoverBgColor).toBe(
+            hexToRgb(theme.colors.button.primary["background-hover"]),
+        )
     })
 })
