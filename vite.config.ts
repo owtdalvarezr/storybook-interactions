@@ -11,6 +11,7 @@ export default defineConfig({
         react(),
         dts({
             insertTypesEntry: true,
+            exclude: ["**/*.(test|spec|stories).ts?(x)"],
         }),
     ],
     build: {
@@ -30,7 +31,7 @@ export default defineConfig({
                 },
             },
         },
-        sourcemap: true,
+        // sourcemap: false,
         minify: false,
     },
 
