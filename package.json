@@ -10,6 +10,7 @@
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
+        "test": "vitest",
         "test:playwright": "playwright test",
         "test-storybook": "test-storybook",
         "format": "prettier \"**/*.{tsx,ts,css,scss,html}\" --write"
@@ -17,7 +18,8 @@
     "dependencies": {
         "classnames": "^2.5.1",
         "react": "^19.1.0",
-        "react-dom": "^19.1.0"
+        "react-dom": "^19.1.0",
+        "vitest": "^3.1.4"
     },
     "devDependencies": {
         "@eslint/js": "^9.25.0",

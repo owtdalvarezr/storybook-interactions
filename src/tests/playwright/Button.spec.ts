@@ -33,7 +33,6 @@ test.describe("Button Component", () => {
         })
 
         // Assert colors are different
-        // expect(hoverBgColor).not.toBe(initialBgColor)
         expect(hoverBgColor).toBe(
             hexToRgb(theme.colors.button.primary["background-hover"]),
         )
