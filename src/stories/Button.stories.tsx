@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Button } from "../components/Button/Button.tsx"
+import { Button } from "../components/Button"
 import { spyMouseEvents } from "../helpers/spyEvents.ts"
 import { expect, userEvent, within } from "@storybook/test"
 
