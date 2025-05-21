@@ -56,6 +56,10 @@ export const Primary: Story = {
             await userEvent.unhover(button)
             await expect(args.onMouseLeave).toHaveBeenCalled()
         })
+
+        await step("Click away to unfocus button", async () => {
+            await userEvent.click(button.parentElement!)
+        })
     },
 }
 
