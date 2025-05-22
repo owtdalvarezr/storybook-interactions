@@ -1,7 +1,8 @@
 import { PlaywrightTestConfig } from "@playwright/test"
 
 const config: PlaywrightTestConfig = {
-    testDir: "./src/tests/playwright",
+    testDir: "./src",
+    testMatch: ["**/*.playwright.ts?(x)"],
     webServer: {
         command: "npm run storybook",
         url: "http://localhost:6006",

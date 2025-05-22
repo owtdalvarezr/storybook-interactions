@@ -56,7 +56,7 @@ export default defineConfig({
         // Vitest configuration
         globals: true,
         environment: "node",
-        include: ["**/*.test.?(c|m)[jt]s?(x)"],
+        include: ["**/*.test.ts?(x)"],
         watch: false,
     },
 })

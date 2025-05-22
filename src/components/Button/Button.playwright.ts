@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test"
 import { theme } from "../../theme"
-import { hexToRgb } from "../../story-helpers/colorConverter.ts"
+import { hexToRgb } from "../../story-helpers/hexToRgb.ts"
 
 test.describe("Button Component", () => {
     test("changes background color on hover", async ({ page }) => {
