@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { Button } from "../components"
-import { spyMouseEvents } from "../helpers/spyEvents.ts"
+import { spyMouseEvents } from "../story-helpers/spyEvents.ts"
 import { expect, userEvent, within } from "@storybook/test"
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

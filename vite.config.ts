@@ -11,14 +11,14 @@ export default defineConfig({
         react(),
         dts({
             insertTypesEntry: true,
-            exclude: ["**/*.(test|spec|stories).ts?(x)"],
+            exclude: ["**/*.(test|spec|stories).ts?(x)", "src/story-helpers/"],
         }),
     ],
     build: {
         lib: {
             entry: resolve(__dirname, "src/index.ts"),
             formats: ["es"],
-            fileName: "index.es.js",
+            fileName: "index",
             cssFileName: "index",
         },
         rollupOptions: {
@@ -31,7 +31,7 @@ export default defineConfig({
                 },
             },
         },
-        // sourcemap: false,
+        sourcemap: true,
         minify: false,
     },
 

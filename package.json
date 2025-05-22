@@ -4,14 +4,14 @@
     "description": "React component library with interactive components",
     "type": "module",
     "main": "dist/index.js",
-    "module": "dist/index.es.js",
+    "module": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
         "dist"
     ],
     "exports": {
         ".": {
-            "import": "./dist/index.es.js",
+            "import": "./dist/index.js",
             "types": "./dist/index.d.ts"
         },
         "./index.css": "./dist/index.css"

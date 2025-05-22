@@ -1,6 +1,6 @@
 // hexToRgb.test.ts
 import { describe, it, expect } from "vitest"
-import { hexToRgb } from "../../helpers/colorConverter.ts"
+import { hexToRgb } from "../../story-helpers/colorConverter.ts"
 
 describe("hexToRgb", () => {
     it("converts standard hex colors with # prefix correctly", () => {
