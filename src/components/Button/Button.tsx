@@ -1,4 +1,4 @@
-import "./button.module.css"
+import styles from "./button.module.css"
 import React from "react"
 import classnames from "classnames"
 
@@ -25,14 +25,13 @@ export const Button = ({
     disabled = false,
     ...props
 }: ButtonProps) => {
-    const mode = primary
-        ? "storybook-button--primary"
-        : "storybook-button--secondary"
+    const modeClass = primary ? styles.primary : styles.secondary
+    const sizeClass = styles[size]
 
     const className = classnames(
-        "storybook-button",
-        `storybook-button--${size}`,
-        mode,
+        styles.button,
+        modeClass,
+        sizeClass,
     )
 
     return (
