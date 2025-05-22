@@ -10,39 +10,34 @@ export type ButtonProps = {
     /** How large should the button be? */
     size?: "small" | "medium" | "large"
     /** Button contents */
-    label: string
+    children: string
     disabled?: boolean
     /** Optional click handler */
     onClick?: () => void
 } & React.JSX.IntrinsicElements["button"]
 
-/** Primary UI component for user interaction */
-export const Button = ({
-    primary = false,
-    size = "medium",
-    backgroundColor,
-    label,
-    disabled = false,
-    ...props
-}: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
+    const {
+        children,
+        primary = false,
+        size = "medium",
+        disabled = false,
+        className,
+        ...restProps
+    } = props
     const modeClass = primary ? styles.primary : styles.secondary
     const sizeClass = styles[size]
 
-    const className = classnames(
-        styles.button,
-        modeClass,
-        sizeClass,
-    )
+    const classname = classnames(styles.button, modeClass, sizeClass, className)
 
     return (
         <button
             type="button"
             disabled={disabled}
-            className={className}
-            style={{ backgroundColor }}
-            {...props}
+            className={classname}
+            {...restProps}
         >
-            {label}
+            {children}
         </button>
     )
 }
